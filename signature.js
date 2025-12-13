@@ -12,13 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var canvas = document.getElementById('sg-full-canvas');
 
     // --- 署名パッド設定 ---
+    // --- 署名パッド設定 ---
     var signaturePad = new SignaturePad(canvas, {
-        backgroundColor: 'rgb(255, 255, 255)', // 背景白
-        onEnd: function () {
-            // 描画終了時に呼ばれる
-            if (!signaturePad.isEmpty()) {
-                confirmBtn.disabled = false; // ボタン有効化
-            }
+        backgroundColor: 'rgb(255, 255, 255)' // 背景白
+    });
+
+    // v4系は onEnd オプションではなくイベントリスナーを使用
+    signaturePad.addEventListener("endStroke", () => {
+        if (!signaturePad.isEmpty()) {
+            confirmBtn.disabled = false; // ボタン有効化
         }
     });
 
