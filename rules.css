@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+/* --- 基本設定 --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+#sg-tos-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 15px 40px; /* スマホで見やすい余白 */
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif; /* 明朝体指定 */
+  color: #1a1a1a;
+  background-color: #fff;
+  line-height: 1.8;
+  font-size: 14px; /* スマホ基準 */
+  box-sizing: border-box;
+}
+
+/* --- 見出しデザイン --- */
+#sg-tos-wrapper .sg-main-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+  border: none;
+  margin-top: 0;
+}
+#sg-tos-wrapper .sg-subtitle {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+#sg-tos-wrapper .sg-article-title {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+/* --- 本文・リストスタイル --- */
+#sg-tos-wrapper p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+/* 数字リスト (1. 2. ...) */
+#sg-tos-wrapper ol.sg-list-num {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+#sg-tos-wrapper ol.sg-list-num > li {
+  margin-bottom: 0.8em;
+  padding-left: 0.5em;
+}
+
+/* 括弧リスト ((1) (2) ...) */
+#sg-tos-wrapper ol.sg-list-kako {
+  counter-reset: list-kako;
+  list-style: none;
+  padding-left: 1em;
+  margin-top: 0.5em;
+}
+#sg-tos-wrapper ol.sg-list-kako > li {
+  position: relative;
+  padding-left: 2em;
+  margin-bottom: 0.5em;
+}
+#sg-tos-wrapper ol.sg-list-kako > li::before {
+  counter-increment: list-kako;
+  content: "(" counter(list-kako) ") ";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* --- 日付エリア --- */
+#sg-tos-wrapper .sg-dates {
+  margin-top: 50px;
+  text-align: right;
+  font-size: 13px;
+}
+#sg-tos-wrapper .sg-dates p {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+/* --- シックなアクションエリア --- */
+#sg-tos-wrapper .sg-action-area {
+  margin-top: 60px;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  border-radius: 4px;
+}
+
+/* チェックボックス */
+#sg-tos-wrapper .sg-checkbox-wrapper {
+  margin-bottom: 25px;
+}
+#sg-tos-wrapper .sg-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+  font-weight: bold;
+}
+#sg-tos-wrapper .sg-checkbox-label input {
+  transform: scale(1.3);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* 送信ボタン */
+#sg-tos-wrapper .sg-submit-button {
+  background-color: #222; /* 黒に近いグレー */
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 320px;
+  display: inline-block;
+  text-decoration: none;
+}
+#sg-tos-wrapper .sg-submit-button:hover {
+  background-color: #000;
+}
+/* 無効化状態 */
+#sg-tos-wrapper .sg-submit-button:disabled {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+/* --- 全体レイアウト --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+}
+
+#sg-thanks-wrapper {
+  /* 画面いっぱいに広げて中央揃え */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 画面の高さ確保 */
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- コンテンツボックス --- */
+.sg-thanks-container {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+  /* ふわっと浮き上がるアニメーション */
+  animation: sgFadeInUp 1.2s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* --- アイコン --- */
+.sg-icon-box {
+  margin-bottom: 30px;
+}
+.sg-check-icon {
+  width: 70px;
+  height: 70px;
+  color: #c5a059; /* 落ち着いたゴールド */
+  stroke-width: 1.2;
+}
+
+/* --- タイトル --- */
+.sg-thanks-title {
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  color: #111;
+  margin-top: 0;
+}
+
+/* --- 本文メッセージ --- */
+.sg-thanks-message p {
+  font-size: 14px;
+  color: #666;
+  line-height: 2;
+  margin-bottom: 1.5em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- 閉じる案内（注釈） --- */
+.sg-close-hint {
+  margin-top: 40px;
+  font-size: 11px;
+  color: #999;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- アニメーション定義 --- */
+@keyframes sgFadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- スマホ横幅調整 --- */
+@media screen and (max-width: 480px) {
+  .sg-thanks-container {
+    padding: 20px 10px;
+  }
+}
