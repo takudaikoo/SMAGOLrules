@@ -33,11 +33,34 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   if (checkBox && submitBtn) {
+    var modal = document.getElementById('sg-modal');
+    var modalConfirmBtn = document.getElementById('sg-modal-confirm');
+
     // チェックボックスの変更検知
     checkBox.addEventListener('change', function () {
-      // 署名とチェックの両方が必要だが、ボタン活性化はチェックのみで制御し、クリック時に署名確認をするのが一般的
-      // ここでは仕様通りチェックがあればボタンは押せるようにする
-      submitBtn.disabled = !this.checked;
+      if (this.checked) {
+        // モーダルを開く
+        modal.style.display = 'block';
+        resizeCanvas(); // モーダル表示時にリサイズしないと正しく描画できない場合がある
+      } else {
+        // チェックを外したらボタン無効化
+        submitBtn.disabled = true;
+        submitBtn.textContent = '署名して送信する';
+      }
+    });
+
+    // モーダル内の「確定する」ボタン
+    modalConfirmBtn.addEventListener('click', function () {
+      if (signaturePad.isEmpty()) {
+        alert('署名をお願いします。');
+        return;
+      }
+      // 署名があればモーダルを閉じる
+      modal.style.display = 'none';
+
+      // 送信ボタンを有効化
+      submitBtn.disabled = false;
+      submitBtn.textContent = '同意して送信する'; // 文言変更
     });
 
     // 送信ボタンクリック時の処理
@@ -45,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
 
       if (signaturePad.isEmpty()) {
-        alert('署名をお願いします。');
+        alert('署名が確認できません。再度チェックボックスから署名を行ってください。');
         return;
       }
 
@@ -94,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
         alert('送信に失敗しました。\nエラー: ' + error.message);
         submitBtn.disabled = false;
-        submitBtn.textContent = '同意して送信する';
+        submitBtn.textContent = '署名して送信する'; // 文言を元に戻す
       }
     });
   }
