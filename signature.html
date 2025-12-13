@@ -96,20 +96,24 @@
 
         .sg-guide-text {
             position: absolute;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left: 20px;
+            /* 左寄せ */
+            /* transform: translate(-50%, -50%); 中央配置解除 */
             color: #e0e0e0;
-            font-size: 100px;
+            font-size: 50px;
+            /* 半分の大きさ */
             font-weight: bold;
             opacity: 0.5;
         }
 
         .sg-guide-sei {
-            top: 25%;
+            top: 10px;
+            /* 上半分の左上 */
         }
 
         .sg-guide-mei {
-            top: 75%;
+            top: calc(50% + 10px);
+            /* 下半分の左上 */
         }
     </style>
     <!-- Supabase & Signature Pad -->
