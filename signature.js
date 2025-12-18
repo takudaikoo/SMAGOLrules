@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var fileName = 'sign_' + Date.now() + '.png';
 
             // 2. Google Driveへアップロード (GAS経由)
-            var GAS_URL = 'https://script.google.com/macros/s/AKfycbxFFn-ZE7FT-d3lvwDdEmYI7k0rxRPryXC8QjHXyafx-WOJRrO27WPxDRkdeYWQckE/exec';
+            var GAS_URL = 'https://script.google.com/macros/s/AKfycbxHQyw4JmUgp8kZTx1HfGslC0zKeTztUuj0gKWBwcDUTfB1y__VnKGI7ldqEKJGsp43/exec';
 
             // dataUrl ("data:image/png;base64,...") そのまま送信してもGAS側でパース可能に作ってありますが、
             // ここでは念の為そのまま送ります (GAS側で split 処理などが実装されている前提)
